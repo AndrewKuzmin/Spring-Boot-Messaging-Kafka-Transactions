@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class ListenerA {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(KafkaConfiguration.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(ListenerA.class);
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
