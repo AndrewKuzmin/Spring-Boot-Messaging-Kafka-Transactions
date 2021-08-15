@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers:
+      - ${KAFKA_SERVICE_HOST:localhost}:${KAFKA_SERVICE_PORT:9092}
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      transaction-id-prefix: tx.
+    consumer:
+      properties:
+        isolation.level: read_committed
+    listener:
+      type: batch
+    properties:
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${CONFLUENT-CLOUD-API-KEY}' password='${CONFLUENT-CLOUD-API-SECRET}';
+      security.protocol: SASL_SSL
